@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Connections">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DBType" type="xs:string" minOccurs="0" />
+              <xs:element name="Server" type="xs:string" minOccurs="0" />
+              <xs:element name="Database" type="xs:string" minOccurs="0" />
+              <xs:element name="User" type="xs:string" minOccurs="0" />
+              <xs:element name="Password" type="xs:string" minOccurs="0" />
+              <xs:element name="Timeout" type="xs:int" minOccurs="0" />
+              <xs:element name="Path" type="xs:string" minOccurs="0" />
+              <xs:element name="FilePassword" type="xs:string" minOccurs="0" />
+              <xs:element name="ConnectionName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
