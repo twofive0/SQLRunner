@@ -48,6 +48,7 @@ Partial Class frmMain
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButtonConnect = New System.Windows.Forms.ToolStripButton()
         Me.btnRunQuery = New System.Windows.Forms.ToolStripButton()
         Me.txtRunAction = New System.Windows.Forms.ToolStripButton()
         Me.btnOpenFile = New System.Windows.Forms.ToolStripButton()
@@ -97,7 +98,6 @@ Partial Class frmMain
         Me.refreshTablesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.backExportMultiSet = New System.ComponentModel.BackgroundWorker()
-        Me.ToolStripButtonConnect = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -119,35 +119,38 @@ Partial Class frmMain
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.txtStatusLabel, Me.ToolStripStatusLabel1, Me.txtStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 511)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 630)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(914, 22)
+        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1219, 26)
         Me.StatusStrip1.TabIndex = 0
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'txtStatusLabel
         '
         Me.txtStatusLabel.Name = "txtStatusLabel"
-        Me.txtStatusLabel.Size = New System.Drawing.Size(140, 17)
+        Me.txtStatusLabel.Size = New System.Drawing.Size(180, 20)
         Me.txtStatusLabel.Text = "Database: (Not Available)"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(10, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(13, 20)
         Me.ToolStripStatusLabel1.Text = "|"
         '
         'txtStatus
         '
         Me.txtStatus.Name = "txtStatus"
-        Me.txtStatus.Size = New System.Drawing.Size(77, 17)
+        Me.txtStatus.Size = New System.Drawing.Size(97, 20)
         Me.txtStatus.Text = "Status: Ready"
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -159,8 +162,9 @@ Partial Class frmMain
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.BindingNavigator1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(662, 462)
-        Me.SplitContainer1.SplitterDistance = 224
+        Me.SplitContainer1.Size = New System.Drawing.Size(884, 574)
+        Me.SplitContainer1.SplitterDistance = 278
+        Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 1
         '
         'tbEditTabs
@@ -168,33 +172,35 @@ Partial Class frmMain
         Me.tbEditTabs.ContextMenuStrip = Me.popupTabMenu
         Me.tbEditTabs.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tbEditTabs.Location = New System.Drawing.Point(0, 0)
+        Me.tbEditTabs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbEditTabs.Name = "tbEditTabs"
         Me.tbEditTabs.SelectedIndex = 0
-        Me.tbEditTabs.Size = New System.Drawing.Size(662, 224)
+        Me.tbEditTabs.Size = New System.Drawing.Size(884, 278)
         Me.tbEditTabs.TabIndex = 4
         '
         'popupTabMenu
         '
+        Me.popupTabMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.popupTabMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnCloseTab, Me.btnNewTab, Me.renameToolStripMenuItem})
         Me.popupTabMenu.Name = "popupTabMenu"
-        Me.popupTabMenu.Size = New System.Drawing.Size(118, 70)
+        Me.popupTabMenu.Size = New System.Drawing.Size(133, 76)
         '
         'btnCloseTab
         '
         Me.btnCloseTab.Name = "btnCloseTab"
-        Me.btnCloseTab.Size = New System.Drawing.Size(117, 22)
+        Me.btnCloseTab.Size = New System.Drawing.Size(132, 24)
         Me.btnCloseTab.Text = "Close"
         '
         'btnNewTab
         '
         Me.btnNewTab.Name = "btnNewTab"
-        Me.btnNewTab.Size = New System.Drawing.Size(117, 22)
+        Me.btnNewTab.Size = New System.Drawing.Size(132, 24)
         Me.btnNewTab.Text = "New"
         '
         'renameToolStripMenuItem
         '
         Me.renameToolStripMenuItem.Name = "renameToolStripMenuItem"
-        Me.renameToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.renameToolStripMenuItem.Size = New System.Drawing.Size(132, 24)
         Me.renameToolStripMenuItem.Text = "Rename"
         '
         'BindingNavigator1
@@ -203,22 +209,23 @@ Partial Class frmMain
         Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
-        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 209)
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 264)
         Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem
-        Me.BindingNavigator1.Size = New System.Drawing.Size(662, 25)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(884, 27)
         Me.BindingNavigator1.TabIndex = 1
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(45, 24)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
@@ -228,7 +235,7 @@ Partial Class frmMain
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(29, 24)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -237,27 +244,28 @@ Partial Class frmMain
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(29, 24)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
         '
         'BindingNavigatorPositionItem
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -265,7 +273,7 @@ Partial Class frmMain
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(29, 24)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -274,13 +282,13 @@ Partial Class frmMain
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(29, 24)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
         '
         'DataGridView1
         '
@@ -292,18 +300,30 @@ Partial Class frmMain
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(662, 206)
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.Size = New System.Drawing.Size(884, 257)
         Me.DataGridView1.TabIndex = 0
         '
         'ToolStrip1
         '
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonConnect, Me.btnRunQuery, Me.txtRunAction, Me.btnOpenFile, Me.btnSave, Me.cboSaveAs, Me.btnExportDataset, Me.btnEmailMultiSet, Me.btnHelp})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 28)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(914, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1219, 28)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripButtonConnect
+        '
+        Me.ToolStripButtonConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButtonConnect.Image = CType(resources.GetObject("ToolStripButtonConnect.Image"), System.Drawing.Image)
+        Me.ToolStripButtonConnect.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonConnect.Name = "ToolStripButtonConnect"
+        Me.ToolStripButtonConnect.Size = New System.Drawing.Size(29, 25)
+        Me.ToolStripButtonConnect.Text = "Connect"
         '
         'btnRunQuery
         '
@@ -311,7 +331,7 @@ Partial Class frmMain
         Me.btnRunQuery.Image = CType(resources.GetObject("btnRunQuery.Image"), System.Drawing.Image)
         Me.btnRunQuery.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnRunQuery.Name = "btnRunQuery"
-        Me.btnRunQuery.Size = New System.Drawing.Size(83, 22)
+        Me.btnRunQuery.Size = New System.Drawing.Size(101, 25)
         Me.btnRunQuery.Text = "Run Query"
         '
         'txtRunAction
@@ -320,7 +340,7 @@ Partial Class frmMain
         Me.txtRunAction.Image = CType(resources.GetObject("txtRunAction.Image"), System.Drawing.Image)
         Me.txtRunAction.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.txtRunAction.Name = "txtRunAction"
-        Me.txtRunAction.Size = New System.Drawing.Size(121, 22)
+        Me.txtRunAction.Size = New System.Drawing.Size(148, 25)
         Me.txtRunAction.Text = "Run Action Query"
         '
         'btnOpenFile
@@ -328,7 +348,7 @@ Partial Class frmMain
         Me.btnOpenFile.Image = CType(resources.GetObject("btnOpenFile.Image"), System.Drawing.Image)
         Me.btnOpenFile.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnOpenFile.Name = "btnOpenFile"
-        Me.btnOpenFile.Size = New System.Drawing.Size(89, 22)
+        Me.btnOpenFile.Size = New System.Drawing.Size(111, 25)
         Me.btnOpenFile.Text = "Open Script"
         '
         'btnSave
@@ -337,14 +357,14 @@ Partial Class frmMain
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
         Me.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(94, 22)
+        Me.btnSave.Size = New System.Drawing.Size(120, 25)
         Me.btnSave.Text = "Save Data As"
         '
         'cboSaveAs
         '
         Me.cboSaveAs.Items.AddRange(New Object() {"CSV", "High Compression Format", "Excel (Tab Delimited)", "XML", "Choose Delimiter"})
         Me.cboSaveAs.Name = "cboSaveAs"
-        Me.cboSaveAs.Size = New System.Drawing.Size(140, 25)
+        Me.cboSaveAs.Size = New System.Drawing.Size(185, 28)
         Me.cboSaveAs.Text = "CSV"
         '
         'btnExportDataset
@@ -353,7 +373,7 @@ Partial Class frmMain
         Me.btnExportDataset.Image = CType(resources.GetObject("btnExportDataset.Image"), System.Drawing.Image)
         Me.btnExportDataset.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnExportDataset.Name = "btnExportDataset"
-        Me.btnExportDataset.Size = New System.Drawing.Size(102, 22)
+        Me.btnExportDataset.Size = New System.Drawing.Size(131, 25)
         Me.btnExportDataset.Text = "Export Dataset"
         '
         'btnEmailMultiSet
@@ -362,8 +382,9 @@ Partial Class frmMain
         Me.btnEmailMultiSet.Image = CType(resources.GetObject("btnEmailMultiSet.Image"), System.Drawing.Image)
         Me.btnEmailMultiSet.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnEmailMultiSet.Name = "btnEmailMultiSet"
-        Me.btnEmailMultiSet.Size = New System.Drawing.Size(103, 22)
+        Me.btnEmailMultiSet.Size = New System.Drawing.Size(131, 25)
         Me.btnEmailMultiSet.Text = "E-Mail Dataset"
+        Me.btnEmailMultiSet.Visible = False
         '
         'btnHelp
         '
@@ -371,7 +392,7 @@ Partial Class frmMain
         Me.btnHelp.Image = CType(resources.GetObject("btnHelp.Image"), System.Drawing.Image)
         Me.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(23, 22)
+        Me.btnHelp.Size = New System.Drawing.Size(29, 25)
         Me.btnHelp.Text = "Help/About"
         '
         'backRunQuery
@@ -385,10 +406,11 @@ Partial Class frmMain
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.toolsToolStripMenuItem, Me.tabsToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(914, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1219, 28)
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -396,194 +418,195 @@ Partial Class frmMain
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenScriptToolStripMenuItem, Me.SaveScriptToolStripMenuItem, Me.ToolStripSeparator1, Me.PrintHTMLReportToolStripMenuItem, Me.ToolStripSeparator3, Me.SettingsToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(46, 24)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'OpenScriptToolStripMenuItem
         '
         Me.OpenScriptToolStripMenuItem.Name = "OpenScriptToolStripMenuItem"
         Me.OpenScriptToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OpenScriptToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.OpenScriptToolStripMenuItem.Size = New System.Drawing.Size(304, 26)
         Me.OpenScriptToolStripMenuItem.Text = "&Open Script"
         '
         'SaveScriptToolStripMenuItem
         '
         Me.SaveScriptToolStripMenuItem.Name = "SaveScriptToolStripMenuItem"
         Me.SaveScriptToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveScriptToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.SaveScriptToolStripMenuItem.Size = New System.Drawing.Size(304, 26)
         Me.SaveScriptToolStripMenuItem.Text = "&Save Script (Current Tab)"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(242, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(301, 6)
         '
         'PrintHTMLReportToolStripMenuItem
         '
         Me.PrintHTMLReportToolStripMenuItem.Name = "PrintHTMLReportToolStripMenuItem"
-        Me.PrintHTMLReportToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.PrintHTMLReportToolStripMenuItem.Size = New System.Drawing.Size(304, 26)
         Me.PrintHTMLReportToolStripMenuItem.Text = "&Print HTML Report"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(242, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(301, 6)
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(304, 26)
         Me.SettingsToolStripMenuItem.Text = "S&ettings/DB Connections"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem, Me.CutToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.ToolStripSeparator2, Me.SelectAllToolStripMenuItem})
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(49, 24)
         Me.EditToolStripMenuItem.Text = "&Edit"
         '
         'UndoToolStripMenuItem
         '
         Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
         Me.UndoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.UndoToolStripMenuItem.Text = "&Undo"
         '
         'CutToolStripMenuItem
         '
         Me.CutToolStripMenuItem.Name = "CutToolStripMenuItem"
         Me.CutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.CutToolStripMenuItem.Text = "Cu&t"
         '
         'CopyToolStripMenuItem
         '
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.CopyToolStripMenuItem.Text = "&Copy"
         '
         'PasteToolStripMenuItem
         '
         Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
         Me.PasteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.PasteToolStripMenuItem.Text = "&Paste"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(161, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(203, 6)
         '
         'SelectAllToolStripMenuItem
         '
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.SelectAllToolStripMenuItem.Text = "Select &All"
         '
         'toolsToolStripMenuItem
         '
         Me.toolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.convertMultisetToAccessToolStripMenuItem, Me.convertMultisetToSQLiteToolStripMenuItem, Me.sendResultsToStoredConnectionToolStripMenuItem, Me.toolStripSeparator4, Me.xMLDataEditorToolStripMenuItem, Me.loadFromXMLToolStripMenuItem, Me.toolStripSeparator5, Me.openScriptLogToolStripMenuItem, Me.adminModeToolStripMenuItem})
         Me.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem"
-        Me.toolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.toolsToolStripMenuItem.Size = New System.Drawing.Size(58, 24)
         Me.toolsToolStripMenuItem.Text = "T&ools"
         '
         'convertMultisetToAccessToolStripMenuItem
         '
         Me.convertMultisetToAccessToolStripMenuItem.Name = "convertMultisetToAccessToolStripMenuItem"
-        Me.convertMultisetToAccessToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.convertMultisetToAccessToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.convertMultisetToAccessToolStripMenuItem.Text = "Convert Multiset to &Access"
         '
         'convertMultisetToSQLiteToolStripMenuItem
         '
         Me.convertMultisetToSQLiteToolStripMenuItem.Name = "convertMultisetToSQLiteToolStripMenuItem"
-        Me.convertMultisetToSQLiteToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.convertMultisetToSQLiteToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.convertMultisetToSQLiteToolStripMenuItem.Text = "Convert Multiset to S&QLite"
         '
         'sendResultsToStoredConnectionToolStripMenuItem
         '
         Me.sendResultsToStoredConnectionToolStripMenuItem.Enabled = False
         Me.sendResultsToStoredConnectionToolStripMenuItem.Name = "sendResultsToStoredConnectionToolStripMenuItem"
-        Me.sendResultsToStoredConnectionToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.sendResultsToStoredConnectionToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.sendResultsToStoredConnectionToolStripMenuItem.Text = "&Send Results to Stored Connection"
         '
         'toolStripSeparator4
         '
         Me.toolStripSeparator4.Name = "toolStripSeparator4"
-        Me.toolStripSeparator4.Size = New System.Drawing.Size(253, 6)
+        Me.toolStripSeparator4.Size = New System.Drawing.Size(317, 6)
         '
         'xMLDataEditorToolStripMenuItem
         '
         Me.xMLDataEditorToolStripMenuItem.Name = "xMLDataEditorToolStripMenuItem"
-        Me.xMLDataEditorToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.xMLDataEditorToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.xMLDataEditorToolStripMenuItem.Text = "X&ML Data Editor"
         '
         'loadFromXMLToolStripMenuItem
         '
         Me.loadFromXMLToolStripMenuItem.Name = "loadFromXMLToolStripMenuItem"
-        Me.loadFromXMLToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.loadFromXMLToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.loadFromXMLToolStripMenuItem.Text = "Load From &XML"
         '
         'toolStripSeparator5
         '
         Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(253, 6)
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(317, 6)
         '
         'openScriptLogToolStripMenuItem
         '
         Me.openScriptLogToolStripMenuItem.Name = "openScriptLogToolStripMenuItem"
-        Me.openScriptLogToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.openScriptLogToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.openScriptLogToolStripMenuItem.Text = "Open Script &Log"
         '
         'adminModeToolStripMenuItem
         '
         Me.adminModeToolStripMenuItem.Name = "adminModeToolStripMenuItem"
-        Me.adminModeToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.adminModeToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
         Me.adminModeToolStripMenuItem.Text = "A&dmin Mode"
         '
         'tabsToolStripMenuItem
         '
         Me.tabsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.newTabToolStripMenuItem, Me.closeTabToolStripMenuItem, Me.renameTabToolStripMenuItem})
         Me.tabsToolStripMenuItem.Name = "tabsToolStripMenuItem"
-        Me.tabsToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.tabsToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
         Me.tabsToolStripMenuItem.Text = "&Tabs"
         '
         'newTabToolStripMenuItem
         '
         Me.newTabToolStripMenuItem.Name = "newTabToolStripMenuItem"
-        Me.newTabToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.newTabToolStripMenuItem.Size = New System.Drawing.Size(173, 26)
         Me.newTabToolStripMenuItem.Text = "&New Tab"
         '
         'closeTabToolStripMenuItem
         '
         Me.closeTabToolStripMenuItem.Name = "closeTabToolStripMenuItem"
-        Me.closeTabToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.closeTabToolStripMenuItem.Size = New System.Drawing.Size(173, 26)
         Me.closeTabToolStripMenuItem.Text = "&Close Tab"
         '
         'renameTabToolStripMenuItem
         '
         Me.renameTabToolStripMenuItem.Name = "renameTabToolStripMenuItem"
-        Me.renameTabToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.renameTabToolStripMenuItem.Size = New System.Drawing.Size(173, 26)
         Me.renameTabToolStripMenuItem.Text = "&Rename Tab"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutManualToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 24)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'AboutManualToolStripMenuItem
         '
         Me.AboutManualToolStripMenuItem.Name = "AboutManualToolStripMenuItem"
-        Me.AboutManualToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutManualToolStripMenuItem.Size = New System.Drawing.Size(188, 26)
         Me.AboutManualToolStripMenuItem.Text = "&About/Manual"
         '
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(0, 49)
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 56)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer2.Name = "SplitContainer2"
         '
         'SplitContainer2.Panel1
@@ -593,8 +616,9 @@ Partial Class frmMain
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(914, 462)
-        Me.SplitContainer2.SplitterDistance = 248
+        Me.SplitContainer2.Size = New System.Drawing.Size(1219, 574)
+        Me.SplitContainer2.SplitterDistance = 330
+        Me.SplitContainer2.SplitterWidth = 5
         Me.SplitContainer2.TabIndex = 3
         '
         'tvTables
@@ -604,6 +628,7 @@ Partial Class frmMain
         Me.tvTables.ImageIndex = 0
         Me.tvTables.ImageList = Me.imageList1
         Me.tvTables.Location = New System.Drawing.Point(0, 0)
+        Me.tvTables.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tvTables.Name = "tvTables"
         TreeNode1.ImageKey = "table"
         TreeNode1.Name = "Tables"
@@ -617,19 +642,20 @@ Partial Class frmMain
         TreeNode2.Text = "Views"
         Me.tvTables.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
         Me.tvTables.SelectedImageIndex = 0
-        Me.tvTables.Size = New System.Drawing.Size(248, 462)
+        Me.tvTables.Size = New System.Drawing.Size(330, 574)
         Me.tvTables.TabIndex = 1
         '
         'popupTablesListMenu
         '
+        Me.popupTablesListMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.popupTablesListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.refreshTablesToolStripMenuItem})
         Me.popupTablesListMenu.Name = "popupTablesListMenu"
-        Me.popupTablesListMenu.Size = New System.Drawing.Size(151, 26)
+        Me.popupTablesListMenu.Size = New System.Drawing.Size(173, 28)
         '
         'refreshTablesToolStripMenuItem
         '
         Me.refreshTablesToolStripMenuItem.Name = "refreshTablesToolStripMenuItem"
-        Me.refreshTablesToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.refreshTablesToolStripMenuItem.Size = New System.Drawing.Size(172, 24)
         Me.refreshTablesToolStripMenuItem.Text = "Refresh Tables"
         '
         'imageList1
@@ -643,26 +669,18 @@ Partial Class frmMain
         '
         Me.backExportMultiSet.WorkerReportsProgress = True
         '
-        'ToolStripButtonConnect
-        '
-        Me.ToolStripButtonConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButtonConnect.Image = CType(resources.GetObject("ToolStripButtonConnect.Image"), System.Drawing.Image)
-        Me.ToolStripButtonConnect.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonConnect.Name = "ToolStripButtonConnect"
-        Me.ToolStripButtonConnect.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButtonConnect.Text = "Connect"
-        '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(914, 533)
+        Me.ClientSize = New System.Drawing.Size(1219, 656)
         Me.Controls.Add(Me.SplitContainer2)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmMain"
         Me.Text = "SQL Runner"
         Me.StatusStrip1.ResumeLayout(False)

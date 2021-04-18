@@ -8,7 +8,7 @@ Public Class frmMain
     Private ServerName As String
     Private DBName As String
     Private conectString As String
-    Private Const softwareTitle As String = "SQLRunner 17.02.24"
+    Private Const softwareTitle As String = "SQLRunner 21.04.18"
 
     'SQL Server connection objects
     Private dbConect As SqlClient.SqlConnection
@@ -858,48 +858,48 @@ Public Class frmMain
     End Sub
     
     Sub sendEMailAttach(fName As String)
-    	
-    	backExportMultiSet.ReportProgress(0,"Sending Outlook E-Mail")
-    	
-    	try
-	    	' Create an Outlook application.
-	        Dim oApp As Outlook._Application
-	        oApp = New Outlook.Application()
-	        oApp.GetNamespace("MAPI")
-	        oApp.Session.Logon
-	
-	        ' Create a new MailItem.
-	        Dim oMsg As Outlook._MailItem
-	        oMsg = oApp.CreateItem(Outlook.OlItemType.olMailItem)
-	        oMsg.Subject = "Message From SQLRunner"
-	        oMsg.Body = "This is an automated e-mail message from SQLRunner " & Application.ProductVersion & vbCr & vbCr
-	
-	        oMsg.To = My.Settings.EMailAddr
-	
-	        ' Add an attachment
-	        Dim sSource As String = fName
-	        Dim sDisplayName As String = fName
-	
-	        Dim sBodyLen As String = oMsg.Body.Length
-	        Dim oAttachs As Outlook.Attachments = oMsg.Attachments
-	        Dim oAttach As Outlook.Attachment
-	        oAttach = oAttachs.Add(sSource, , sBodyLen + 1, sDisplayName)
-	
-	        ' Send
-	        oMsg.Send()
-	
-	        ' Clean up
-	        oApp = Nothing
-	        oMsg = Nothing
-	        oAttach = Nothing
-	        oAttachs = Nothing
-    	Catch ex As Exception
-    		backExportMultiSet.ReportProgress(0,"Error Sending E-Mail: " & ex.message )
-    		Exit Sub
-    	End Try
-    	
-    	backExportMultiSet.ReportProgress(0,"E-Mail Sent @ " & Now() )
-        
+
+        'backExportMultiSet.ReportProgress(0,"Sending Outlook E-Mail")
+
+        'try
+        '	' Create an Outlook application.
+        '    Dim oApp As Outlook._Application
+        '    oApp = New Outlook.Application()
+        '    oApp.GetNamespace("MAPI")
+        '    oApp.Session.Logon
+
+        '    ' Create a new MailItem.
+        '    Dim oMsg As Outlook._MailItem
+        '    oMsg = oApp.CreateItem(Outlook.OlItemType.olMailItem)
+        '    oMsg.Subject = "Message From SQLRunner"
+        '    oMsg.Body = "This is an automated e-mail message from SQLRunner " & Application.ProductVersion & vbCr & vbCr
+
+        '    oMsg.To = My.Settings.EMailAddr
+
+        '    ' Add an attachment
+        '    Dim sSource As String = fName
+        '    Dim sDisplayName As String = fName
+
+        '    Dim sBodyLen As String = oMsg.Body.Length
+        '    Dim oAttachs As Outlook.Attachments = oMsg.Attachments
+        '    Dim oAttach As Outlook.Attachment
+        '    oAttach = oAttachs.Add(sSource, , sBodyLen + 1, sDisplayName)
+
+        '    ' Send
+        '    oMsg.Send()
+
+        '    ' Clean up
+        '    oApp = Nothing
+        '    oMsg = Nothing
+        '    oAttach = Nothing
+        '    oAttachs = Nothing
+        'Catch ex As Exception
+        '	backExportMultiSet.ReportProgress(0,"Error Sending E-Mail: " & ex.message )
+        '	Exit Sub
+        'End Try
+
+        'backExportMultiSet.ReportProgress(0,"E-Mail Sent @ " & Now() )
+
     End Sub
     
     Private Function cleanTXT(inTXT As String) As String
